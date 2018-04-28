@@ -26,13 +26,14 @@
             </div>
             <div class="input-field col s12">
               <select v-model="item.boss">
+                <option value="">No boss</option>
                 <option v-for="user in items" :value="user.id" :selected="item.boss === user.id?'selected':''">{{user.fio}}</option>
               </select>
               <label>His/her Boss</label>
             </div>
             <div class="input-field col s12">
               <select multiple>
-                <option v-for="user in items" :value="user.id" :selected="user.boss===item.id?'selected':''">{{user.fio}}</option>
+                <option v-for="user in items" :value="user.id" :selected="user.boss===item.id?'selected':''" v-if="user.id!==item.id">{{user.fio}}</option>
               </select>
               <label>His/her Inferiors</label>
             </div>
