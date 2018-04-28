@@ -10,6 +10,7 @@
             <span class="waves-effect">{{field.title}}</span><i class="tiny material-icons" v-if="order.field === field.alias">{{order.dir?"arrow_upward":"arrow_downward"}}</i>
           </div>
         </th>
+        <th></th>
       </tr>
     </thead>
 
@@ -19,6 +20,14 @@
         <td>{{item.fio}}</td>
         <td>{{item.position}}</td>
         <td>{{item.phone}}</td>
+        <td>
+          <button class="btn-floating btn-small waves-effect waves-light red" type="button" @click="tableDeleteClick($event, item)"><i class="material-icons right">delete</i></button>
+        </td>
+      </tr>
+      <tr v-if="!items.length">
+        <td class="center-align" colspan="4">
+          <h5>sorry, nothing found</h5>
+        </td>
       </tr>
     </tbody>
 
@@ -56,6 +65,10 @@
       },
       tableHeadClick: function (alias) {
         eventBus.$emit("tableHeadClick", alias);
+      },
+      tableDeleteClick: function (event, item) {
+        eventBus.$emit("tableDeleteClick", item);
+        event.stopPropagation();
       },
 
     }

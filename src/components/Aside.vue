@@ -2,7 +2,8 @@
   <div id="slide-out" class="sidenav">
       <div class="user-view">
         <div class="center-align valign-wrapper">
-          <img src="../assets/logo.png" alt="" class="circle responsive-img">
+          <img class="circle responsive-img" v-if="item.image" :src="require('../assets/avatar-vadim.png')" alt="">
+          <img class="circle responsive-img" v-else :src="require('../assets/avatar-default.png')" alt="">
         </div>
         <br>
         <form class="col s12">
@@ -37,10 +38,10 @@
             </div>
           </div>
         </form>
-        <button class="btn waves-effect waves-light red" type="button" @click="close">Cancel
+        <button class="btn waves-effect waves-light red" type="button" @click="cancel()">Cancel
           <i class="material-icons right">clear</i>
         </button>
-        <button class="btn waves-effect waves-light green" type="button" @click="close">Save
+        <button class="btn waves-effect waves-light green" type="button" @click="save()">Save
           <i class="material-icons right">check</i>
         </button>
 
@@ -56,14 +57,17 @@
     name: 'Pagination',
     props: ["item","items"],
     data() {
-      return {}
-    },
-    create: function () {
-
+      return {
+        oldData: {},
+        defaultImage: '../assets/avatar-default.png'
+      }
     },
     methods: {
-      close: function(){
-
+      save: function(){
+        eventBus.$emit("save", null);
+      },
+      cancel: function(){
+        eventBus.$emit("cancel", null);
       }
 
     }

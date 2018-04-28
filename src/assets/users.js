@@ -2,25 +2,25 @@ const users = [
   {
     id: 0,
     fio: "Пиляев Вадим Сергеевич",
-    position: "frontend developer",
+    position: "Frontend developer",
     phone: "+7 (000) 000 00-05",
-    image: "",
+    image: "../assets/avatar-vadim.png",
     boss: 100,
     inferiors: []
   },
   {
     id: 5,
     fio: "Путин Владимир Владимирович",
-    position: "president",
+    position: "Президент",
     phone: "+7 (000) 000 00-06",
     image: "",
-    boss: null,
+    boss: '',
     inferiors: [100,101,102,103,104]
   },
   {
     id: 100,
     fio: "Дми́трий Анато́льевич Медве́дев",
-    position: "Председатель правительства Российской Федерации",
+    position: "Председатель правительства РФ",
     phone: "+7 (000) 000 01-00",
     image: "",
     boss: 5,

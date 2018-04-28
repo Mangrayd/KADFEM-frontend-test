@@ -23,7 +23,6 @@
       return {}
     },
     methods: {
-
       pagClick: function (page) {
         eventBus.$emit("pagClick", page);
       }
